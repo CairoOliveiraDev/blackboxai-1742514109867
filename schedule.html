@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Post - SocialSync Pro</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#6366F1',
+                        dark: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div class="bg-dark w-64 px-4 py-6 flex flex-col">
+            <div class="flex items-center mb-8">
+                <a href="dashboard.html" class="text-2xl font-bold text-white hover:text-gray-200 transition duration-150 ease-in-out">
+                    SocialSync Pro
+                </a>
+            </div>
+            
+            <nav class="flex-1 space-y-2">
+                <a href="dashboard.html" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-home mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="schedule.html" class="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
+                    <i class="fas fa-calendar mr-3"></i>
+                    Agendamento
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    Analytics
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-hashtag mr-3"></i>
+                    Hashtags
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-cog mr-3"></i>
+                    Configurações
+                </a>
+            </nav>
+
+            <div class="mt-auto">
+                <div class="flex items-center px-4 py-2">
+                    <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name=User&background=random" alt="User">
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-white">Usuário Demo</p>
+                        <p class="text-xs text-gray-400">Plano Pro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Top Navigation -->
+            <div class="bg-white shadow-sm">
+                <div class="px-6 py-4">
+                    <h1 class="text-2xl font-semibold text-gray-900">Agendar Nova Postagem</h1>
+                </div>
+            </div>
+
+            <!-- Scheduling Form -->
+            <div class="p-6">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <form>
+                            <!-- Media Upload -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Mídia
+                                </label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-primary transition duration-150 ease-in-out">
+                                    <div class="space-y-1 text-center">
+                                        <i class="fas fa-cloud-upload-alt text-4xl text-gray-400"></i>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-secondary focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary">
+                                                <span>Upload de arquivo</span>
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                            </label>
+                                            <p class="pl-1">ou arraste e solte</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">
+                                            PNG, JPG, GIF até 10MB
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Platforms -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Plataformas
+                                </label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <label class="relative flex items-center p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition duration-150 ease-in-out">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300" checked>
+                                        <span class="ml-3">
+                                            <i class="fab fa-instagram text-pink-500 mr-2"></i>
+                                            Instagram
+                                        </span>
+                                    </label>
+                                    <label class="relative flex items-center p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition duration-150 ease-in-out">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300" checked>
+                                        <span class="ml-3">
+                                            <i class="fab fa-tiktok text-dark mr-2"></i>
+                                            TikTok
+                                        </span>
+                                    </label>
+                                    <label class="relative flex items-center p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition duration-150 ease-in-out">
+                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300">
+                                        <span class="ml-3">
+                                            <i class="fab fa-facebook text-blue-600 mr-2"></i>
+                                            Facebook
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Caption -->
+                            <div class="mb-8">
+                                <label for="caption" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Legenda
+                                </label>
+                                <textarea id="caption" name="caption" rows="4" 
+                                    class="shadow-sm focus:ring-primary focus:border-primary block w-full sm:text-sm border-gray-300 rounded-md"
+                                    placeholder="Digite a legenda da sua postagem..."></textarea>
+                            </div>
+
+                            <!-- Hashtags -->
+                            <div class="mb-8">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Hashtags Sugeridas
+                                </label>
+                                <div class="flex flex-wrap gap-2">
+                                    <button type="button" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition duration-150 ease-in-out">
+                                        #marketing
+                                    </button>
+                                    <button type="button" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition duration-150 ease-in-out">
+                                        #socialmedia
+                                    </button>
+                                    <button type="button" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition duration-150 ease-in-out">
+                                        #digital
+                                    </button>
+                                    <button type="button" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition duration-150 ease-in-out">
+                                        #trending
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Schedule -->
+                            <div class="mb-8">
+                                <label for="schedule-date" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Data e Hora
+                                </label>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="date" id="schedule-date" name="schedule-date" 
+                                        class="shadow-sm focus:ring-primary focus:border-primary block w-full sm:text-sm border-gray-300 rounded-md">
+                                    <input type="time" id="schedule-time" name="schedule-time" 
+                                        class="shadow-sm focus:ring-primary focus:border-primary block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                            </div>
+
+                            <!-- Submit Buttons -->
+                            <div class="flex justify-end space-x-4">
+                                <button type="button" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 ease-in-out">
+                                    Salvar Rascunho
+                                </button>
+                                <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 ease-in-out">
+                                    Agendar Post
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
