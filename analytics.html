@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - SocialSync Pro</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#6366F1',
+                        dark: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div class="bg-dark w-64 px-4 py-6 flex flex-col">
+            <div class="flex items-center mb-8">
+                <a href="dashboard.html" class="text-2xl font-bold text-white hover:text-gray-200 transition duration-150 ease-in-out">
+                    SocialSync Pro
+                </a>
+            </div>
+            
+            <nav class="flex-1 space-y-2">
+                <a href="dashboard.html" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-home mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="schedule.html" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-calendar mr-3"></i>
+                    Agendamento
+                </a>
+                <a href="analytics.html" class="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    Analytics
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-hashtag mr-3"></i>
+                    Hashtags
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 rounded-lg transition duration-150 ease-in-out">
+                    <i class="fas fa-cog mr-3"></i>
+                    Configurações
+                </a>
+            </nav>
+
+            <div class="mt-auto">
+                <div class="flex items-center px-4 py-2">
+                    <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name=User&background=random" alt="User">
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-white">Usuário Demo</p>
+                        <p class="text-xs text-gray-400">Plano Pro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Top Navigation -->
+            <div class="bg-white shadow-sm">
+                <div class="px-6 py-4 flex items-center justify-between">
+                    <h1 class="text-2xl font-semibold text-gray-900">Analytics</h1>
+                    <div class="flex space-x-4">
+                        <select class="form-select rounded-md border-gray-300 text-sm focus:border-primary focus:ring-primary">
+                            <option>Últimos 7 dias</option>
+                            <option>Últimos 30 dias</option>
+                            <option>Este mês</option>
+                            <option>Este ano</option>
+                        </select>
+                        <button class="bg-white border border-gray-300 rounded-md px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 ease-in-out">
+                            <i class="fas fa-download mr-2"></i>
+                            Exportar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Content -->
+            <div class="p-6">
+                <!-- Overview Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-blue-100 rounded-full">
+                                <i class="fas fa-eye text-blue-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Visualizações</p>
+                                <p class="text-2xl font-semibold text-gray-900">124.5K</p>
+                                <p class="text-sm text-green-500">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    12.5%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-purple-100 rounded-full">
+                                <i class="fas fa-heart text-purple-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Curtidas</p>
+                                <p class="text-2xl font-semibold text-gray-900">45.2K</p>
+                                <p class="text-sm text-green-500">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    8.3%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-green-100 rounded-full">
+                                <i class="fas fa-comment text-green-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Comentários</p>
+                                <p class="text-2xl font-semibold text-gray-900">2.8K</p>
+                                <p class="text-sm text-red-500">
+                                    <i class="fas fa-arrow-down mr-1"></i>
+                                    3.2%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-yellow-100 rounded-full">
+                                <i class="fas fa-share text-yellow-500 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Compartilhamentos</p>
+                                <p class="text-2xl font-semibold text-gray-900">1.2K</p>
+                                <p class="text-sm text-green-500">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    15.8%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- Engagement Chart -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Engajamento por Plataforma</h3>
+                        <canvas id="engagementChart" height="300"></canvas>
+                    </div>
+
+                    <!-- Best Times Chart -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Melhores Horários para Postagem</h3>
+                        <canvas id="timesChart" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Posts -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900">Posts com Melhor Desempenho</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Post
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Plataforma
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Visualizações
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Engajamento
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Data
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10 rounded-lg object-cover" src="https://picsum.photos/200" alt="">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Dicas de Marketing Digital
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    #marketing #digital
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <i class="fab fa-instagram text-pink-500"></i>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        45.2K
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">15.8%</div>
+                                        <div class="text-sm text-green-500">
+                                            <i class="fas fa-arrow-up mr-1"></i>
+                                            2.3%
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        Hoje, 14:30
+                                    </td>
+                                </tr>
+                                <!-- More rows... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Engagement Chart
+        const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+        new Chart(engagementCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Instagram', 'TikTok', 'Facebook'],
+                datasets: [{
+                    label: 'Taxa de Engajamento (%)',
+                    data: [15.8, 12.4, 8.6],
+                    backgroundColor: [
+                        'rgba(79, 70, 229, 0.8)',
+                        'rgba(99, 102, 241, 0.8)',
+                        'rgba(31, 41, 55, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgb(79, 70, 229)',
+                        'rgb(99, 102, 241)',
+                        'rgb(31, 41, 55)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Best Times Chart
+        const timesCtx = document.getElementById('timesChart').getContext('2d');
+        new Chart(timesCtx, {
+            type: 'line',
+            data: {
+                labels: ['6h', '9h', '12h', '15h', '18h', '21h'],
+                datasets: [{
+                    label: 'Engajamento Médio',
+                    data: [4.2, 8.5, 12.3, 15.8, 18.2, 14.5],
+                    fill: true,
+                    borderColor: 'rgb(79, 70, 229)',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
